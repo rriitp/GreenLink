@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Project Report - GreenLink (HTML, CSS, JS, EJS, MongoDB, Node, React)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F8F7F0;
+      color: #1F2937;
+      line-height: 1.6;
+      padding: 30px 16px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #E5E7EB;
+      overflow: hidden;
+    }
+    .header {
+      background: #0B362F;
+      color: #ffffff;
+      padding: 36px 40px;
+      border-bottom: 5px solid #168B5C;
+    }
+    .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .header p { color: #A7F3D0; font-size: 14px; }
+    .meta-bar {
+      background: #072520;
+      padding: 12px 40px;
+      color: #D1D5DB;
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .body-content {
+      padding: 40px;
+    }
+    h2 {
+      font-size: 20px;
+      color: #0B362F;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E8F5EE;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2:first-of-type { margin-top: 0; }
+    p, li { font-size: 14px; color: #374151; margin-bottom: 12px; }
+    ul { margin-left: 20px; margin-bottom: 16px; }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .tech-card {
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      padding: 16px;
+      border-radius: 12px;
+      border-left: 4px solid #168B5C;
+    }
+    .tech-card h4 { font-size: 14px; font-weight: 700; color: #111827; margin-bottom: 4px; }
+    .tech-card p { font-size: 12px; color: #6B7280; margin: 0; }
+    pre {
+      background: #111827;
+      color: #F3F4F6;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 12px;
+      margin: 16px 0;
+    }
+    .schema-box {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #168B5C;
+      color: #ffffff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎓 Academic & Technical Project Specification</h1>
+      <p>Project: <strong>GreenLink — Smart Agriculture & Farmer Empowerment Platform</strong></p>
+    </div>
+    <div class="meta-bar">
+      <span><strong>Hackathon:</strong> Hackoverflow 10.0, NIT Durgapur</span>
+      <span><strong>Team:</strong> HackForge (Rahul Raj & Rajan Aryan)</span>
+      <span><strong>Engine:</strong> Node.js, Express, EJS, React, MongoDB</span>
+    </div>
+
+    <div class="body-content">
+      <h2>1. Technology Stack Implementation Matrix</h2>
+      <p>This project is specifically architected combining fundamental computer science concepts with modern full-stack web engineering:</p>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>🌐 HTML5 & CSS3</h4>
+          <p>Semantic markup, accessible forms, responsive mobile viewports, and custom styling with Tailwind CSS design tokens.</p>
+        </div>
+        <div class="tech-card">
+          <h4>⚡ JavaScript (ESNext)</h4>
+          <p>Asynchronous runtime, promises, event handling, Web Speech API for voice synthesis, and DOM manipulation.</p>
+        </div>
+        <div class="tech-card">
+          <h4>📑 EJS (Embedded JS)</h4>
+          <p>Server-Side Rendering (SSR) templating in Node/Express for invoices, mandi receipts, and dynamic server-rendered pages.</p>
+        </div>
+        <div class="tech-card">
+          <h4>🟢 Node.js & Express</h4>
+          <p>Backend HTTP server, RESTful API endpoints (/api/crops, /api/chat, /api/health), middleware, and static asset pipeline.</p>
+        </div>
+        <div class="tech-card">
+          <h4>🍃 MongoDB & Mongoose</h4>
+          <p>Document-oriented NoSQL database architecture with schema validation for Users, Crops, Enquiries, and Schemes.</p>
+        </div>
+        <div class="tech-card">
+          <h4>⚛️ React.js (v19)</h4>
+          <p>Single Page Application (SPA) component hierarchy, reactive state hooks, modals, and interactive Recharts data visualization.</p>
+        </div>
+      </div>
+
+      <h2>2. MongoDB Database Schema Architecture</h2>
+      <p>The system defines collections modeled via Mongoose ODM:</p>
+
+      <div class="schema-box">
+        <strong>Collections Architecture:</strong>
+        <ul>
+          <li><code>users</code>: ObjectId, name, email, role (enum: ['farmer', 'buyer', 'admin']), state, district, phone</li>
+          <li><code>crop_listings</code>: farmer (ref: User), cropName, category, quantityKg, expectedPricePerKg, qualityGrade, status</li>
+          <li><code>buyer_enquiries</code>: cropListing (ref: CropListing), buyer (ref: User), farmer (ref: User), requestedQuantityKg, offeredPricePerKg, status</li>
+          <li><code>government_schemes</code>: name, hindiName, category, purpose, eligibility, benefits, officialUrl</li>
+        </ul>
+      </div>
+
+      <pre><code>// Example Mongoose Model Definition in Node.js
+const mongoose = require('mongoose');
+
+const CropListingSchema = new mongoose.Schema({
+  farmer: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  cropName: { type: String, required: true },
+  category: { type: String, enum: ['Grains & Cereals', 'Pulses', 'Vegetables', 'Oilseeds'] },
+  quantityKg: { type: Number, required: true, min: 1 },
+  expectedPricePerKg: { type: Number, required: true },
+  harvestDate: { type: Date, default: Date.now },
+  status: { type: String, enum: ['Active', 'Under Negotiation', 'Sold'], default: 'Active' },
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('CropListing', CropListingSchema);</code></pre>
+
+      <h2>3. Server-Side Routing in Express (Node.js + EJS)</h2>
+      <p>How the backend handles both client SPA hydration and server-rendered EJS templates:</p>
+      <pre><code>// server.ts
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// EJS Server-Side Rendered Route for Mandi Slips
+app.get('/trade-receipt/:id', (req, res) => {
+  const crop = getCropById(req.params.id);
+  res.render('trade_receipt', { crop, buyer, date: new Date().toLocaleDateString() });
+});
+
+// JSON RESTful APIs consumed by React SPA
+app.post('/api/chat', async (req, res) => {
+  const { message } = req.body;
+  const reply = await geminiOrAgriculturalEngine(message);
+  res.json({ reply });
+});</code></pre>
+
+      <h2>4. Front-End React Component Tree</h2>
+      <p>The interactive client SPA delivers high-performance state transitions with zero page-reload lag:</p>
+      <ul>
+        <li><code>App.tsx</code>: Central state hub connecting LocalStorage/API persistence</li>
+        <li><code>MarketplacePage.tsx</code>: Real-time filtering, category pills, price slider, and grid/list view toggles</li>
+        <li><code>FarmerDashboard.tsx</code> & <code>BuyerDashboard.tsx</code>: Role-based workflows for crop publishing and trade negotiation</li>
+        <li><code>AIAssistantPage.tsx</code>: Google Gemini 3.8 Flash AI assistant with English/Hindi voice synthesis</li>
+        <li><code>CropPriceInsightsPage.tsx</code>: Mandi vs MSP interactive charts powered by Recharts</li>
+      </ul>
+
+      <a href="/" class="nav-btn">&larr; Return to GreenLink Interactive Web Application</a>
+    </div>
+  </div>
+</body>
+</html>

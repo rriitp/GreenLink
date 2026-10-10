@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - GreenLink AgriTech</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: #F8F7F0;
+      color: #1F2937;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .invoice-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 760px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      border: 1px solid #E5E7EB;
+      overflow: hidden;
+    }
+    .header {
+      background: #0B362F;
+      color: #ffffff;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #168B5C;
+    }
+    .brand-title {
+      font-size: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      background: #168B5C;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .content {
+      padding: 32px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .info-box {
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      padding: 16px;
+      border-radius: 12px;
+    }
+    .info-box h3 {
+      font-size: 12px;
+      color: #6B7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .info-box p {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .info-box span {
+      font-size: 12px;
+      color: #4B5563;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    th {
+      background: #E8F5EE;
+      color: #0B362F;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      font-weight: 700;
+      border-bottom: 2px solid #168B5C;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #F3F4F6;
+      font-size: 13px;
+    }
+    .total-row {
+      background: #F8F7F0;
+      font-weight: 800;
+      color: #0B362F;
+      font-size: 15px;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 32px;
+      background: #F9FAFB;
+      border-top: 1px solid #E5E7EB;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background: #168B5C;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #12724B;
+    }
+    .btn-secondary {
+      background: #E5E7EB;
+      color: #374151;
+    }
+    .btn-secondary:hover {
+      background: #D1D5DB;
+    }
+    .tech-pill {
+      font-size: 11px;
+      color: #0B362F;
+      background: #D1FAE5;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .actions, .back-link {
+        display: none;
+      }
+      .invoice-card {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="width: 100%; max-width: 760px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;" class="back-link">
+    <a href="/" style="color: #168B5C; text-decoration: none; font-size: 13px; font-weight: 700;">&larr; Back to GreenLink React SPA</a>
+    <span class="tech-pill">⚡ Server Rendered via EJS & Node.js</span>
+  </div>
+
+  <div class="invoice-card">
+    <div class="header">
+      <div>
+        <div class="brand-title">
+          <span>🌿 GreenLink</span>
+          <span class="badge">EJS Mandi Trade Receipt</span>
+        </div>
+        <p style="font-size: 12px; color: #A7F3D0; margin-top: 4px;">Connecting Farmers. Enabling Fair Markets.</p>
+      </div>
+      <div style="text-align: right;">
+        <p style="font-size: 12px; color: #D1D5DB;">Receipt No: #<%= receiptId %></p>
+        <p style="font-size: 12px; color: #D1D5DB;">Date: <%= date %></p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="grid">
+        <div class="info-box">
+          <h3>Farmer (Seller) Details</h3>
+          <p><%= crop.farmerName %></p>
+          <span>📍 <%= crop.farmerDistrict %>, <%= crop.farmerState %></span><br>
+          <span>Phone: <%= crop.farmerPhone %></span>
+        </div>
+        <div class="info-box">
+          <h3>Buyer / Trader Details</h3>
+          <p><%= buyer.name %></p>
+          <span>🏢 <%= buyer.company %></span><br>
+          <span>📍 <%= buyer.district %>, <%= buyer.state %></span>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Commodity & Variety</th>
+            <th>Quality Grade</th>
+            <th>Quantity (kg)</th>
+            <th>Rate (₹ / kg)</th>
+            <th style="text-align: right;">Amount (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong><%= crop.cropName %></strong><br>
+              <span style="font-size: 11px; color: #6B7280;"><%= crop.variety || crop.category %></span>
+            </td>
+            <td><%= crop.qualityGrade || 'Grade A (Standard)' %></td>
+            <td><%= quantity.toLocaleString('en-IN') %> kg (<%= (quantity/100).toFixed(1) %> Quintal)</td>
+            <td>₹<%= pricePerKg %> / kg (₹<%= pricePerKg * 100 %>/qtl)</td>
+            <td style="text-align: right; font-weight: 700;">₹<%= (quantity * pricePerKg).toLocaleString('en-IN') %></td>
+          </tr>
+          <tr>
+            <td colspan="4" style="color: #4B5563; font-size: 12px;">Mandi Cess & Intermediary Brokerage (GreenLink Zero Brokerage Savings)</td>
+            <td style="text-align: right; color: #168B5C; font-weight: 600;">₹0 (100% Direct)</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="4">Total Farmer Net Realization</td>
+            <td style="text-align: right;">₹<%= (quantity * pricePerKg).toLocaleString('en-IN') %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: #F3F4F6; padding: 12px 16px; border-radius: 8px; font-size: 12px; color: #4B5563; line-height: 1.5;">
+        <strong>Legal & Weighment Declaration:</strong> This document certifies electronic trade linkage between the verified farmer and buyer. Weighment verification conducted through electronic APMC weighbridge scales.
+      </div>
+    </div>
+
+    <div class="actions">
+      <span style="font-size: 12px; color: #6B7280;">Stack: <strong>HTML + CSS + EJS + Node.js + Express</strong></span>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-secondary" onclick="window.print()">🖨️ Print Receipt</button>
+        <a href="/" class="btn btn-primary">Return to Marketplace</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

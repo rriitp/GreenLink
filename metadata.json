@@ -1,0 +1,6 @@
+{
+  "name": "GreenLink — Smart Agriculture & Farmer Empowerment Platform",
+  "description": "Connecting Farmers. Enabling Fair Markets. Discover agricultural schemes, list crops, connect with buyers, explore mandi prices, and consult the AI agriculture assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
